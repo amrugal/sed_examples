@@ -1,0 +1,11 @@
+SQL Oracle file to MySQL with SED
+
+---
+Insert into PRACOWNICY (ID,IMIE,NAZWISKO,PESEL,PLEC,DATA_URODZENIA,PENSJA, KOD_DEPARTAMENTU) 
+values (12, 'Jacek', 'Grzymała', '80020366584', 'M', to_date('80/02/03','RR/MM/DD'), 7000, 2);
+
+sed "s/,'RR\/MM\/DD')//g ; s/to_date(//g ; s/PRACOWNICY/pracownicy/g" pracownicy.sql
+
+Insert into pracownicy (ID,IMIE,NAZWISKO,PESEL,PLEC,DATA_URODZENIA,PENSJA, KOD_DEPARTAMENTU) 
+values (12, 'Jacek', 'Grzymała', '80020366584', 'M', '80/02/03', 7000, 2);
+---
